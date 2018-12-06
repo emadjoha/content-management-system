@@ -70,10 +70,13 @@
 
 
     {{-- Display Items --}}
-       <div class="container">
-        @foreach( $items as $item )
-            <div  class="card" style="width: 18rem;">
+    <div class="container">
+        <div class="row">
 
+
+        @foreach( $items as $item )
+                <div class="col-md-4">
+                <div  class="card" style="width: 18rem;">
                     <img class="card-img-top" style="width: 286px;height: 180px;"    src="{!! asset('item_pics')."/".$item->pic !!}"
                           alt="{!!$item->pic!!}">
                     {{-- Item's Title --}}
@@ -123,9 +126,10 @@
                         @endforeach
               @endif
                  <hr>
-           </div>
-        @endforeach
+        </div>
+     @endforeach
        </div>
+    </div>
 @stop
 
 
