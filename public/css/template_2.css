@@ -1,0 +1,28 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+
+        }
+       
+        .attr__header{
+            color: #00010D;
+            margin-bottom: 20px;
+            font-size: 36px;
+            font-family: ostrichSans_heavy;
+            
+        }
+        .attr__panel{
+            display: flex; 
+            justify-content: center;  
+            border-radius: 10px;
+            padding-left: 5px;
+            background-color:#2B3843;
+            width: 100%;
+            min-height: 40px ; 
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+ 

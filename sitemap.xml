@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>C:\xampp\htdocs\cms\public\</loc>
+        <lastmod>2018-11-10T10:53:32+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <codesearch:codesearch>
+            <codesearch:filetype>php</codesearch:filetype>
+        </codesearch:codesearch>
+    </url>
+    <url>
+        <loc>C:\xampp\htdocs\cms\public\index</loc>
+        <lastmod>2018-11-10T10:53:32+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <codesearch:codesearch>
+            <codesearch:filetype>php</codesearch:filetype>
+        </codesearch:codesearch>
+    </url>
+    <url>
+        <loc>C:\xampp\htdocs\cms\public\view\*</loc>
+        <lastmod>2018-11-10T10:53:32+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.1</priority>
+        <codesearch:codesearch>
+            <codesearch:filetype>php</codesearch:filetype>
+        </codesearch:codesearch>
+    </url>
+</urlset>
