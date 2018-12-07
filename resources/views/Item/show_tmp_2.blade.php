@@ -42,12 +42,17 @@
 
 @section('content')
 
+
+
+
+
+
     {{-- Display Item --}}
     <div class="row">
-            <div  class="col-md-9">
+            <div  class="col">
                 {{-- Item's Picture --}}
-                <h3> Picture </h3>
-                 <img src="{!! asset('item_pics')."/". $item->pic !!}" alt="{!!$item->pic!!}"  style="width:100px;height:100px" >
+
+                 <img src="{!! asset('item_pics')."/". $item->pic !!}" alt="{!!$item->pic!!}">
     
                 {{-- Item's Title --}}
                 <?php
@@ -59,7 +64,6 @@
                    $word->content = "????";
                 }
                 ?>
-                <h3> Title </h3>
                 <h4> {!!$word->content!!} </h4>
         
                 {{-- Item's Description --}}
@@ -72,9 +76,7 @@
                     $word->content = "????";
                 }
                 ?>
-                    <h3> Description </h3>
-                    <h4> {!!$word->content!!} </h4>
-                    <h3> Content </h3>
+                    <h6> {!!$word->content!!} </h6>
                     <?php
                     $lang_id = session('lang');
                     $word = \App\Translator::whereLanguageId($lang_id)->whereTranslatorsId($item->id)->whereTranslatorsType('App\Item')->first();
@@ -83,21 +85,14 @@
             
                     <?=$word->content?>
                 </div>
-            <div class="col-md-3 flex justify-content-center" style="margin-top: 20px;border-radius:20px; min-height: 400px;padding-top: 20px">
+
                 @if( count($item->attributes) )
-                    <div class="panel panel-default" style="background-color: #666666" >
-                        <div class="panel-body">
-                            <h3 class="text-center attr__header"> Attribute(s)</h3>
-                        </div>
-                        <div class="panel-footer" style="background-color: #4E6162" >
-        
                             @foreach( $item->attributes as $attribute )
                                 <?php $attributable = \App\Attributable::whereAttributeId($attribute->id)->whereAttributableId($item->id)->whereAttributableType('App\Item')->first() ?>
-                                <div class="text-center attr__panel" >
-                                    <h4 style="color: #FFF38B; text-align: right" dir="ltr" >{{$attribute->name}}
-        
-                                    </h4>
-                                    <h4 style="color: #fff;" >
+                                    <span class="badge badge-danger" style="background: #ee9900">
+                                        {{$attribute->name}}
+                                    </span>
+                                    <span class="badge badge-pill badge-light">
                                         <?php $word = \App\Translator::whereLanguageId($lang_id)->whereTranslatorsId($attributable->id)->whereTranslatorsType('App\Attributable')->first();
                                         if( !$word ) {
                                             $word = new stdClass();
@@ -105,15 +100,9 @@
                                         }
                                         ?>
                                         : {{$word->content}}
-                                    </h4>
-                                </div>
-                                <br>
+                                    </span>
                             @endforeach
-                        </div>
-                    </div>
                 @endif
-                    <hr>
-            </div>
     </div>
 @stop
 

@@ -33,7 +33,14 @@
         <hr>
         @foreach( $langs as $lang )
             <div class="form-group">
-                <?php $word = \App\Translator::whereLanguageId($lang->id)->whereTranslatorsId($cat->id)->whereTranslatorsType('App\MainMenu')->first(); ?>
+                <?php $word = \App\Translator::whereLanguageId($lang->id)->whereTranslatorsId($cat->id)->whereTranslatorsType('App\MainMenu')->first();
+                  if(!$word){
+                      $word = new \stdClass();
+                      $word->content = '????';
+                  }
+
+                ?>
+
                 @if($lang->align == 0)
                     <div class="form-group" dir="ltr" >
                         <h3 style="color: saddlebrown;" > {{$lang->name}} </h3>

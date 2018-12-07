@@ -63,7 +63,7 @@
                         $word->content = "????";
                     }
                     ?>
-                    <h5 class="mr-0"> {!!$word->content!!} </h5>
+                    <h4> {!!$word->content!!} </h4>
 
                 {{-- Item's Picture --}}
                 <img src="{!! asset('item_pics')."/".$item->pic !!}" alt="{!!$item->pic!!}">

@@ -27,8 +27,6 @@
 
 
 @section('footer')
-
-
     @if ($errors->any())
         <br>
         <br>

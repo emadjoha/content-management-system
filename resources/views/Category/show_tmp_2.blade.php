@@ -74,20 +74,16 @@
        </div>
 
 
-
         {{-- Display Item --}}
-       <div class="row">
-
+       <div class="media">
         @foreach( $items as $item )
-            <div  class="col-md-9">
-                <a style='text-decoration:none;'
-                href="{{route('view.index',['path'=>ltrim($item->url,'/')])}}"
-                >
-                        {{-- Item's Picture --}}
-                    <h3> Picture </h3>
-                    <img src="{!! asset('item_pics')."/". $item->pic !!}" alt="{!!$item->pic!!}"  style="width:100px;height:100px" >
-
+            <div  class="media-left">
+                <a href="{{route('view.index',['path'=>ltrim($item->url,'/')])}}">
+                    <img class="media-object" src="{!! asset('item_pics')."/". $item->pic !!}" alt="{!!$item->pic!!}"  style="width:100px;height:100px" >
+                </a>
+            </div>
                     {{-- Item's Title --}}
+               <div  class="media-body">
                     <?php
                     $lang_id = session('lang');
                     $title_id = $item->title->id ; 
@@ -97,8 +93,8 @@
                         $word->content = "????";
                     }
                     ?>
-                    <h3> Title </h3>
-                    <h4> {!!$word->content!!} </h4>
+
+                    <h4 class="media-heading"> {!!$word->content!!} </h4>
 
                     {{-- Item's Description --}}
                     <?php
@@ -110,46 +106,27 @@
                         $word->content = "????";
                     }
                     ?>
-                    <h3> Description </h3>
-                    <h4> {!!$word->content!!} </h4>
-                </a>
-            </div>
-
-           <div class="col-md-3 flex justify-content-center" style="margin-top: 20px;border-radius:20px; min-height: 400px;padding-top: 20px">
+                    {!!$word->content!!}
+                        <br>
               @if( count($item->attributes) )
-                <div class="panel panel-default" style="background-color: #666666" >
-                    <div class="panel-body">
-                        <h3 class="text-center attr__header"> Attribute(s)</h3>
-                    </div>
-                    <div class="panel-footer" style="background-color: #4E6162" >
-
                         @foreach( $item->attributes as $attribute )
                             <?php $attributable = \App\Attributable::whereAttributeId($attribute->id)->whereAttributableId($item->id)->whereAttributableType('App\Item')->first() ?>
-                            <div class="text-center attr__panel" >
-                                <h4 style="color: #FFF38B; text-align: right" dir="ltr" >{{$attribute->name}}
 
-                                </h4>
-                                <h4 style="color: #fff;" >
+                                <span class="badge badge-danger" style="background: #ee9900">
+                                    {{$attribute->name}}
+                                </span>
+                                <span class="badge badge-pill badge-light">
                                     <?php $word = \App\Translator::whereLanguageId($lang_id)->whereTranslatorsId($attributable->id)->whereTranslatorsType('App\Attributable')->first();
                                     if( !$word ) {
                                         $word = new stdClass();
                                         $word->content = "????";
                                     }
                                     ?>
-                                    : {{$word->content}}
-                                </h4>
-                            </div>
-                            <br>
+                                    : {{$word->content}} </span>
                         @endforeach
-                    </div>
-                </div>
               @endif
 
-                 <hr>
-
            </div>
-
-
         @endforeach
        </div>
 

@@ -8,7 +8,7 @@
 
                 <div class="card-body col-md-12 col-md-offset-4">
                     <form method="POST" action="{{ route('register') }}">
-                        <h2 class="text-center" style="color: red;"  >Register</h2>
+                        <h2 class="text-center" style="color:red;"  >Register</h2>
 
                         @csrf
 

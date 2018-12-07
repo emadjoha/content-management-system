@@ -16,16 +16,18 @@
 
 
 
-<div class="navbar navbar-inverse" role="navigation" >
-    <div class="container">
-        <div class="navbar-header">
+<div class="navbar navbar-inverse"  role="navigation" >
+    <div class="container" >
+        <div class="navbar-header navbar-left" >
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <?= $navHtml['buttons'] ?>
             </button>
-            <a class="navbar-brand" href="#"><span style="color: red">News</span> App</a>
+            <a class="navbar-brand " href="#"><span style="color: red">
+                    <?= getKeyWord('site_name')->content ?>
+                </span></a>
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse ">
             <ul class="nav navbar-nav navbar-right">
                 @guest
                     <li class="nav-item">
@@ -116,7 +118,7 @@
                     </li>
                 @endguest
             </ul>
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-left">
                     @guest
                     @else
                         @if( \App\Capability::hasCapability('access','dashboard') )
